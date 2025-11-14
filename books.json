@@ -1,0 +1,112 @@
+[
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "isbn": "9780061120084",
+    "publishedYear": 1960,
+    "genre": "fiction",
+    "pageCount": 324,
+    "description": "A novel about racial injustice and moral growth in the Deep South.",
+    "rating": 5,
+    "status": "available"
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "isbn": "9780743273565",
+    "publishedYear": 1925,
+    "genre": "classic",
+    "pageCount": 180,
+    "description": "A tragic story of love, wealth, and the American dream.",
+    "rating": 4,
+    "status": "checked out"
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "isbn": "9781503290563",
+    "publishedYear": 1813,
+    "genre": "romance",
+    "pageCount": 279,
+    "description": "A witty novel about love, reputation, and class distinctions.",
+    "rating": 5,
+    "status": "available"
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "isbn": "9780316769488",
+    "publishedYear": 1951,
+    "genre": "fiction",
+    "pageCount": 277,
+    "description": "A coming-of-age story of teenage rebellion and identity.",
+    "rating": 4,
+    "status": "reserved"
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "isbn": "9780547928227",
+    "publishedYear": 1937,
+    "genre": "fantasy",
+    "pageCount": 310,
+    "description": "A fantasy adventure following Bilbo Baggins on a quest for treasure.",
+    "rating": 5,
+    "status": "available"
+  },
+  {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "isbn": "9781451673319",
+    "publishedYear": 1953,
+    "genre": "dystopian",
+    "pageCount": 194,
+    "description": "A story about censorship and the power of literature in a totalitarian world.",
+    "rating": 5,
+    "status": "available"
+  },
+  {
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "isbn": "9781503280786",
+    "publishedYear": 1851,
+    "genre": "adventure",
+    "pageCount": 635,
+    "description": "A thrilling tale of obsession and revenge on the high seas.",
+    "rating": 4,
+    "status": "checked out"
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "isbn": "9780062315007",
+    "publishedYear": 1988,
+    "genre": "fiction",
+    "pageCount": 208,
+    "description": "A spiritual journey about following one’s dreams and destiny.",
+    "rating": 5,
+    "status": "available"
+  },
+  {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "isbn": "9780060850524",
+    "publishedYear": 1932,
+    "genre": "dystopian",
+    "pageCount": 268,
+    "description": "A futuristic world where happiness is engineered and individuality is suppressed.",
+    "rating": 4,
+    "status": "available"
+  },
+  {
+    "title": "The Book Thief",
+    "author": "Markus Zusak",
+    "isbn": "9780375842207",
+    "publishedYear": 2005,
+    "genre": "historical fiction",
+    "pageCount": 552,
+    "description": "A young girl in Nazi Germany finds comfort in stealing books and sharing them.",
+    "rating": 5,
+    "status": "reserved"
+  }
+]

@@ -1,0 +1,40 @@
+### Get all books
+GET http://localhost:3030/books
+
+### Get a book by ID
+GET http://localhost:3030/books/691617b922cc7dbe38ce17b8
+
+### Add a new book
+POST http://localhost:3030/books
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "isbn": "9780743273565",
+    "publishedYear": 1925,
+    "genre": "historical fiction",
+    "pageCount": 180,
+    "description": "A novel set in the Jazz Age that tells the story of Jay Gatsby's unrequited love for Daisy Buchanan.",
+    "rating": 4.2,
+    "status": "available"
+}
+
+### Update a book by ID
+PUT http://localhost:3030/books/691617f222cc7dbe38ce17ba
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby (Updated Edition)",
+    "author": "F. Scott Fitzgerald",
+    "isbn": "9780743273565",
+    "publishedYear": 1925,
+    "genre": "historical fiction",
+    "pageCount": 200,
+    "description": "An updated edition of the classic novel set in the Jazz Age.",
+    "rating": 4.3,
+    "status": "available"
+}
+
+### Delete a book by ID
+DELETE http://localhost:3030/books/691617d822cc7dbe38ce17b9
