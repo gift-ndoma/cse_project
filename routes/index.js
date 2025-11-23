@@ -1,8 +1,8 @@
 const passport = require('passport');
 const router = require('express').Router();
 
-router.use('/books', require('./books'));
 router.use('/api-docs', require('./swagger'));
+router.use('/books', require('./books'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {
   req.session.user = req.user; 
