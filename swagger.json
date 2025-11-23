@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Library API",
-    "description": "API documentation for the Library project",
+    "description": "API documentation for the Library project. To access protected routes, you must first log in via GitHub OAuth at /login",
     "version": "1.0.0"
   },
   "host": "cse-project-4c2t.onrender.com",
@@ -10,13 +10,21 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "cookieAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Cookie",
+      "description": "Session cookie obtained after GitHub OAuth login"
+    }
+  },
   "paths": {
     "/": {
       "get": {
         "tags": [
           "Hello World"
         ],
-        "description": "",
+        "description": "Returns login status",
         "responses": {
           "200": {
             "description": "OK"
@@ -24,9 +32,38 @@
         }
       }
     },
+    "/login": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "description": "Redirects to GitHub OAuth login",
+        "responses": {
+          "302": {
+            "description": "Redirect to GitHub"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "description": "Logs out the current user",
+        "responses": {
+          "302": {
+            "description": "Redirect to home"
+          }
+        }
+      }
+    },
     "/books/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Books"
+        ],
+        "description": "Get all books (public access)",
         "produces": [
           "application/json"
         ],
@@ -40,40 +77,58 @@
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Books"
+        ],
+        "description": "Create a new book (requires authentication)",
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "The Great Gatsby"
                 },
                 "author": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "F. Scott Fitzgerald"
                 },
                 "isbn": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "9780743273565"
                 },
                 "publishedYear": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1925
                 },
                 "genre": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "fiction"
                 },
                 "pageCount": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 180
                 },
                 "description": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "A classic American novel"
                 },
                 "rating": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 4.5
                 },
                 "status": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "available"
                 }
               }
             }
@@ -83,6 +138,9 @@
           "201": {
             "description": "Created"
           },
+          "401": {
+            "description": "Unauthorized - You do not have access to this resource"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -91,7 +149,10 @@
     },
     "/books/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Books"
+        ],
+        "description": "Get a specific book by ID (public access)",
         "produces": [
           "application/json"
         ],
@@ -100,7 +161,8 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Book ID"
           }
         ],
         "responses": {
@@ -116,46 +178,65 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Books"
+        ],
+        "description": "Update a book (requires authentication)",
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Book ID"
           },
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "The Great Gatsby"
                 },
                 "author": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "F. Scott Fitzgerald"
                 },
                 "isbn": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "9780743273565"
                 },
                 "publishedYear": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1925
                 },
                 "genre": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "fiction"
                 },
                 "pageCount": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 180
                 },
                 "description": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "A classic American novel"
                 },
                 "rating": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 4.5
                 },
                 "status": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "available"
                 }
               }
             }
@@ -164,6 +245,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized - You do not have access to this resource"
           },
           "404": {
             "description": "Not Found"
@@ -174,18 +258,30 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Books"
+        ],
+        "description": "Delete a book (requires authentication)",
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Book ID"
           }
         ],
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized - You do not have access to this resource"
           },
           "404": {
             "description": "Not Found"
