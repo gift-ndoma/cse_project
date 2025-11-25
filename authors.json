@@ -1,0 +1,62 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "birthYear": 1980,
+    "nationality": "American"
+  },
+  {
+    "firstName": "Mary",
+    "lastName": "Smith",
+    "birthYear": 1975,
+    "nationality": "British"
+  },
+  {
+    "firstName": "Ahmed",
+    "lastName": "Hassan",
+    "birthYear": 1992,
+    "nationality": "Egyptian"
+  },
+  {
+    "firstName": "Yuki",
+    "lastName": "Tanaka",
+    "birthYear": 1988,
+    "nationality": "Japanese"
+  },
+  {
+    "firstName": "Sofia",
+    "lastName": "Rodriguez",
+    "birthYear": 1995,
+    "nationality": "Mexican"
+  },
+  {
+    "firstName": "Lars",
+    "lastName": "Andersson",
+    "birthYear": 1983,
+    "nationality": "Swedish"
+  },
+  {
+    "firstName": "Priya",
+    "lastName": "Patel",
+    "birthYear": 1990,
+    "nationality": "Indian"
+  },
+  {
+    "firstName": "Pierre",
+    "lastName": "Dubois",
+    "birthYear": 1978,
+    "nationality": "French"
+  },
+  {
+    "firstName": "Chioma",
+    "lastName": "Okafor",
+    "birthYear": 1987,
+    "nationality": "Nigerian"
+  },
+  {
+    "firstName": "Lucas",
+    "lastName": "Silva",
+    "birthYear": 1993,
+    "nationality": "Brazilian"
+  }
+]

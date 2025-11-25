@@ -3,6 +3,7 @@ const router = require('express').Router();
 
 router.use('/api-docs', require('./swagger'));
 router.use('/books', require('./books'));
+router.use('/authors', require('./authors'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {
   req.session.user = req.user; 
@@ -22,5 +23,6 @@ router.get('/check-session', (req, res) => {
         user: req.session.user || null
     });
 });
+
 
 module.exports = router;
